@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="start" fill="clear">
+          <ion-back-button defaultHref="home" text="Home"></ion-back-button>
+        </ion-button>
+    <ion-title>About</ion-title>
+  <ion-buttons slot="secondary">
+      <ion-button slot="end" (click)="goToProfile()">
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+    <ion-button (click)="logout()" slot="end" color="danger" fill="solid">
+        Logout
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+</ion-content>

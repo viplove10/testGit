@@ -20,9 +20,9 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Profile',
+      url: '/profile',
+      icon: 'person'
     }
   ];
 
@@ -44,17 +44,22 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.getAuthState();
   }
 
   getAuthState(){
+    this.widgetUtilService.presentLoading();
     this.firebaseAuthService.getAuthState().subscribe(user => {
       if(user){
         this.isLoggedIn = true;
       }else{
         this.isLoggedIn = false;
       }
-      this.widgetUtilService.dismissLoader();
       this.handleNavigation();
+      this.widgetUtilService.dismissLoader();
+    },(error) => {
+      this.widgetUtilService.dismissLoader();
+      this.widgetUtilService.presentErrorToast(error.message);
     });
   }
 

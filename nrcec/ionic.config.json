@@ -1,5 +1,7 @@
 {
   "name": "nrcec",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

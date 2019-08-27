@@ -49,7 +49,7 @@ export class SignupPage implements OnInit {
       this.router.navigate(['/home']);
     }catch(error){
       this.showSignupSpinner = false;
-      this.widgetUtilService.presentToast(error.message);
+      this.widgetUtilService.presentErrorToast(error.message);
     }
   }
 

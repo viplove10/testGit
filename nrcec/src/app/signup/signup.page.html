@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
+    <ion-button slot="start" fill="clear">
+      <ion-back-button defaultHref="login" text="Login"></ion-back-button>
     </ion-button>
-    <ion-title>Signup</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -37,7 +37,7 @@
                     <ion-button color="secondary" expand="block" class="ion-margin-top" [disabled]="signupForm.invalid" (click)="signup()">SignUp
                       <ion-spinner name="dots" *ngIf="showSignupSpinner"></ion-spinner>
                     </ion-button>
-                    <ion-button color="light" expand="block" class="ion-margin-top" (click)="goToLogin()">Go to Login</ion-button>
+                    
                 </form>
               </ion-card-content>
             </ion-card>

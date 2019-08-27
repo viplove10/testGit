@@ -21,15 +21,24 @@ export class WidgetUtilService {
     toast.present();
   }
 
-  async presentLoadingWithOptions() {
-    const loading = await this.loadingController.create({
+  async presentErrorToast(message){
+    const toast = await this.toastController.create({
+      message,
+      showCloseButton: true,
+      position: this.platform.is('desktop') ? 'top' : 'bottom'
+    });
+    toast.present();
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
       message: 'Please wait...',
       translucent: true,
     });
-    return await loading.present();
+    await this.loading.present();
   }
 
   async dismissLoader(){
-    await this.loading.dismissLoader();
+    await this.loading.dismiss();
   }
 }

@@ -43,14 +43,14 @@ export class LoginPage implements OnInit {
   async loginWithEmailPassword(){
     try{
       this.showLoginSpinner = true;
-      const result = await this.firebaseAuthService.registerWithEmailPassword(this.email.value, this.password.value);
+      await this.firebaseAuthService.loginWithEmailPassword(this.email.value, this.password.value);
       this.showLoginSpinner = false;
       this.widgetUtilService.presentToast('Login Success!');
       this.resetForm();
       this.router.navigate(['/home']);
     }catch(error){
       this.showLoginSpinner = false;
-      this.widgetUtilService.presentToast(error.message);
+      this.widgetUtilService.presentErrorToast(error.message);
     }
   }
 
@@ -68,6 +68,15 @@ export class LoginPage implements OnInit {
       Validators.minLength(5)
     ])
   }
+
+  async googleLoginWeb(){
+    try{
+      await this.firebaseAuthService.googleLoginWeb();
+    }catch(error){
+      this.widgetUtilService.presentErrorToast(error.message);
+    }
+  }
+
 
   createForm(){
     this.loginForm = new FormGroup({
